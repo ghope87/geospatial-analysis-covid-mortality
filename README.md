@@ -48,6 +48,6 @@ The spatial dependence in model residuals means that OLS inferential statistics 
 
 The HTML report can be found here:
 
-[COVID19_Report.html](https://github.com/user-attachments/files/31218344/COVID19_Report.html)[COVID19_Report.html](https://github.com/user-attachments/files/31218274/COVID19_Report.html)
+[COVID19_Report.html](https://github.com/user-attachments/files/31218344/COVID19_Report.html)
 
 
