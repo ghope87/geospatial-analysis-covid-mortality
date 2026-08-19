@@ -3,12 +3,12 @@ library(tidyr)
 library(readr)
 library(sf)
 
-vax<-read.csv('geospatial-analysis-covid-mortality\\data\\COVID-19-daily-announced-vaccinations-29-September-2021.csv')
-death_rate2021<-read.csv('geospatial-analysis-covid-mortality\\data\\covidDeathRateStd_2021.csv')
-death_rate2020<-read.csv('geospatial-analysis-covid-mortality\\data\\AgeStandardizedDeathRates_2020.csv')
-population<- read.csv('geospatial-analysis-covid-mortality\\data\\population_2021.csv')
-IMD<-read.csv('geospatial-analysis-covid-mortality\\data\\IMD_localAuthority.csv')
-pop_density<-read.csv('geospatial-analysis-covid-mortality\\data\\population-density.csv')
+vax<-read.csv('data\\COVID-19-daily-announced-vaccinations-29-September-2021.csv')
+death_rate2021<-read.csv('data\\covidDeathRateStd_2021.csv')
+death_rate2020<-read.csv('data\\AgeStandardizedDeathRates_2020.csv')
+population<- read.csv('data\\population_2021.csv')
+IMD<-read.csv('data\\IMD_localAuthority.csv')
+pop_density<-read.csv('data\\population-density.csv')
 
 # standardized death rates for 2020 and 2021 from ONS 
 deathRate2020<-death_rate2020|>
@@ -34,7 +34,7 @@ authorities<-death_rate2021|>
 # Select age columns
 age_cols<- c("Under.18", "X18.24","X25.29", "X30.34" ,"X35.39","X40.44","X45.49" , "X50.54", "X55.59","X60.64", "X65.69","X70.74", "X75.79", "X80.")
 
-# Re-group into 18-39,40-69, 60+ age-groups and convert wide to long data
+# Re-group into 18-39,40-59, 60+ age-groups and convert wide to long data
 vax_long <- vax|>
   mutate(across(all_of(age_cols),
                 ~ parse_number(as.character(.x))),
@@ -43,7 +43,7 @@ vax_long <- vax|>
          age_60Plus=rowSums(across(c("X60.64", "X65.69","X70.74", "X75.79", "X80."))))
 
 
-new_age_cols<-c("Under.18", "age_18_40", "age_40_60", "age_60Plus")
+new_age_cols<-c("Under.18", "age_18_39", "age_40_59", "age_60Plus")
 
 # Select age groups in data set
 vax_long<-vax_long|>
@@ -104,7 +104,7 @@ pop_vax<-vax_long|>
 
 # Data frame containing European Standard Populations for selected age_groups
 ESP<-data.frame(
-  age_group=c("Under.18", "age_18_40", "age_40_60", "age_60Plus"),
+  age_group=c("Under.18", "age_18_39", "age_40_59", "age_60Plus"),
   weight=c(21500, 25500, 27500, 25500)
 )
 
