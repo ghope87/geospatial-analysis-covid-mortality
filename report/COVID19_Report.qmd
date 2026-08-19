@@ -21,7 +21,7 @@ library(ggrepel)
 library(ggspatial)
 library(broom)
 
-all_data<-read.csv('assignment_data.csv')
+all_data<-read.csv('geospatial-analysis-covid-mortality\\processing\\processed_data.csv')
 
 ```
 
