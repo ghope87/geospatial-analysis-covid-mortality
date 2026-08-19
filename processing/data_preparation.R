@@ -3,14 +3,12 @@ library(tidyr)
 library(readr)
 library(sf)
 
-vax<-read.csv('C:\\Users\\Graham\\OneDrive\\Desktop\\University Assignments\\Visualization for Geographic Data Science\\VisGeoData\\Assignment 2\\COVID-19-daily-announced-vaccinations-29-September-2021.csv')
-death_rate2021<-read.csv('C:\\Users\\Graham\\OneDrive\\Desktop\\University Assignments\\Visualization for Geographic Data Science\\VisGeoData\\Assignment 2\\covidDeathRateStd_2021.csv')
-death_rate2020<-read.csv('C:\\Users\\Graham\\OneDrive\\Desktop\\University Assignments\\Visualization for Geographic Data Science\\VisGeoData\\Assignment 2\\AgeStandardizedDeathRates_2020.csv')
-population<- read.csv('C:\\Users\\Graham\\OneDrive\\Desktop\\University Assignments\\Visualization for Geographic Data Science\\VisGeoData\\Assignment 2\\population_2021.csv')
-healthDisab_depriv<-read.csv('C:\\Users\\Graham\\OneDrive\\Desktop\\University Assignments\\Visualization for Geographic Data Science\\VisGeoData\\Assignment 2\\custom-filtered-2026-06-30T08_58_34Z.csv') 
-LT_depriv<-read.csv('C:\\Users\\Graham\\OneDrive\\Desktop\\University Assignments\\Visualization for Geographic Data Science\\VisGeoData\\Assignment 2\\custom-filtered-2026-07-05T14_20_50Z.csv')
-IMD<-read.csv('C:\\Users\\Graham\\OneDrive\\Desktop\\University Assignments\\Visualization for Geographic Data Science\\VisGeoData\\Assignment 2\\IMD_localAuthority.csv')
-pop_density<-read.csv('C:\\Users\\Graham\\OneDrive\\Desktop\\University Assignments\\Visualization for Geographic Data Science\\VisGeoData\\Assignment 2\\population-density.csv')
+vax<-read.csv('geospatial-analysis-covid-mortality\\data\\COVID-19-daily-announced-vaccinations-29-September-2021.csv')
+death_rate2021<-read.csv('geospatial-analysis-covid-mortality\\data\\covidDeathRateStd_2021.csv')
+death_rate2020<-read.csv('geospatial-analysis-covid-mortality\\data\\AgeStandardizedDeathRates_2020.csv')
+population<- read.csv('geospatial-analysis-covid-mortality\\data\\population_2021.csv')
+IMD<-read.csv('geospatial-analysis-covid-mortality\\data\\IMD_localAuthority.csv')
+pop_density<-read.csv('geospatial-analysis-covid-mortality\\data\\population-density.csv')
 
 # standardized death rates for 2020 and 2021 from ONS 
 deathRate2020<-death_rate2020|>
@@ -27,7 +25,7 @@ deathRate2021<-death_rate2021|>
 
 # Countries, regions and authorities names and area codes
 
-authorities<-std_deathRate|>
+authorities<-death_rate2021|>
   distinct(area_code, area_name)
 
 
@@ -49,7 +47,7 @@ new_age_cols<-c("Under.18", "age_18_40", "age_40_60", "age_60Plus")
 
 # Select age groups in data set
 vax_long<-vax_long|>
-  select(Area_code, Area_name,Under.18, age_18_40, age_40_60, age_60Plus)|>
+  select(Area_code, Area_name,Under.18, age_18_39, age_40_59, age_60Plus)|>
   pivot_longer(
     cols=all_of(new_age_cols),
     names_to = "Age_group",
@@ -75,13 +73,15 @@ pop_age<-population|>
   mutate(across(all_of(pop_age_cols),
                 ~ parse_number(as.character(.x))),
          Under.18=rowSums(across(c("Age.0...4","Aged.5.9","Aged.10.14", "Aged.15.19"))),
-         age_18_40=rowSums(across(c("Aged.20.24", "Aged.25.29", "Aged.30.34", "Aged.35.39"))),
-         age_40_60=rowSums(across(c("Aged.40.44", "Aged.45.49", "Aged.50.54", "Aged.55.59"))),
+         age_18_39=rowSums(across(c("Aged.20.24", "Aged.25.29", "Aged.30.34", "Aged.35.39"))),
+         age_40_59=rowSums(across(c("Aged.40.44", "Aged.45.49", "Aged.50.54", "Aged.55.59"))),
          age_60Plus=rowSums(across(c("Aged.60.64", "Aged.65.69","Aged.70.74", "Aged.75.79", "Aged.80.84", "Aged.85."))))
 
-# Filter population per age group by local area district  
+# Filter population per age group by local area district 
+new_pop_age_cols = c("Under.18", "age_18_39", "age_40_59", "age_60Plus")
+
 pop_age<-pop_age|>
-  select(Area,Under.18, age_18_40, age_40_60, age_60Plus)|>
+  select(Area,Under.18, age_18_39, age_40_59, age_60Plus)|>
   filter(str_detect(Area,"^(ladu)"))|>
   pivot_longer(
     cols=all_of(new_pop_age_cols),
