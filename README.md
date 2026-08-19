@@ -1,4 +1,4 @@
-# Geospatial Analysis of COVID-19 Mortality in England
+[COVID19_Report.html](https://github.com/user-attachments/files/31218274/COVID19_Report.html)# Geospatial Analysis of COVID-19 Mortality in England
 
 A geospatial and statistical analysis examining variation in COVID-19 mortality across English local authorities during 2021, with a focus on vaccination uptake, deprivation and population density.
 
@@ -69,21 +69,9 @@ The spatial dependence in model residuals means that OLS inferential statistics 
 - Multiple linear regression
 - Geospatial data processing and visualisation
 
-## Repository Structure
+## HTML Report
 
-```text
-geospatial-analysis-covid-mortality/
-│
-├── README.md
-├── COVID19_Report.qmd
-├── COVID19_Report.html
-│
-├── data/
-│   ├── README.md
-│   └── ...
-│
-├── scripts/
-│   └── data_preparation.R
-│
-└── figures/
-    └── ...
+The HTML report can be found here:
+
+[Up<!DOCTYPE html>
+
