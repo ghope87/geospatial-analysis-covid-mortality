@@ -21,33 +21,8 @@ Vaccination uptake was age-standardized after aggregating population and vaccina
 
 ## Analytical Workflow
 
-1. **Data acquisition**
-   - Mortality, vaccination, deprivation and population data
+<img width="964" height="636" alt="COVID_analysis_workflow" src="https://github.com/user-attachments/assets/3c997eaf-bb89-4347-8c6c-90b73beaf049" />
 
-2. **Data preparation**
-   - Age-group aggregation
-   - Age-standardized vaccination rate calculation
-   - Joining datasets using local authority codes
-   - Log transformation of population density
-
-3. **Exploratory analysis**
-   - 2020 vs 2021 mortality comparison
-   - Scatterplots
-   - Pearson correlations
-
-4. **Statistical modelling**
-   - Baseline OLS model: IMD + log-transformed population density
-   - Full OLS model: IMD + log-transformed population density + vaccination uptake
-   - Standardized coefficient comparison
-
-5. **Model diagnostics**
-   - Residuals-versus-fitted plot
-   - Q-Q plot
-   - Variance Inflation Factors
-
-6. **Spatial assessment**
-   - Mapping of model residuals
-   - Global Moran's I using five-nearest-neighbour spatial weights
 
 ## Key Findings
 
@@ -73,6 +48,6 @@ The spatial dependence in model residuals means that OLS inferential statistics 
 
 The HTML report can be found here:
 
-[COVID19_Report.html]
+[COVID19_Report.html](https://github.com/user-attachments/files/31218344/COVID19_Report.html)[COVID19_Report.html](https://github.com/user-attachments/files/31218274/COVID19_Report.html)
 
 
