@@ -21,6 +21,8 @@ Vaccination uptake was age-standardized after aggregating population and vaccina
 
 (Note: ONS LAD boundaries December 2021 dataset is not stored in this repository because of its file size. Download the boundary dataset from the ONS/Open Geography portal and place it in data/boundaries before running the analysis.)
 
+(Note: Vaccination dta reported an under-18 category, while the closest available population denominator covered ages 0-19. The 0-19 population was therefore used as an approximation for the under-18 denominator. This slightly underestimates uptake for that age group and should be considered when interpreting age-specific results)
+
 ## Analytical Workflow
 
 <img width="964" height="636" alt="COVID_analysis_workflow" src="https://github.com/user-attachments/assets/3c997eaf-bb89-4347-8c6c-90b73beaf049" />
