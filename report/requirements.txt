@@ -1,0 +1,8 @@
+tidyverse
+tidyr
+readr
+sf
+patchwork
+ggrepel
+ggspatial
+broom
