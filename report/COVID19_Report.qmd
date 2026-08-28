@@ -47,6 +47,8 @@ where $p_i$ is the age-specific vaccination rate for age group *i* and $ESP_i$ i
 
 ASVR values merged with the remaining datasets using local authority codes. Boundary changes between data releases reduced the final dataset to 287 from 309 English local authorities.
 
+(Note: Vaccination dta reported an under-18 category, while the closest available population denominator covered ages 0-19. The 0-19 population was therefore used as an approximation for the under-18 denominator. This slightly underestimates uptake for that age group and should be considered when interpreting age-specific results)
+
 ### Data Description
 
 | Variable Name  | Variable Value | Measurement Level |
