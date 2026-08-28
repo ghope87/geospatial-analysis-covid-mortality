@@ -35,7 +35,7 @@ Geographical variation in population density and index of multiple deprivation (
 
 ### Data
 
-Data were obtained for English local authorities. The variables included age-standardized COVID-19 mortality rates (ASCMR) 2020 and 2021 from the Office for National Statistics (ONS). Vaccination data by age group from NHS England; Index of Multiple Deprivation (IMD) 2019 scores from the UK Government; and population by age-group and population density from NOMIS (ONS).
+Data were obtained for English local authorities. The variables included age-standardized COVID-19 mortality rates (ASCMR) 2020 and 2021 from the Office for National Statistics (ONS). Vaccination data by age group from NHS England; Index of Multiple Deprivation (IMD) 2019 scores from the UK Government; and population by age-group and population density from NOMIS (ONS). Local authority district boundaries were acquired from the Office of National Statistics (ONS).
 
 ### Data Preparation
 
