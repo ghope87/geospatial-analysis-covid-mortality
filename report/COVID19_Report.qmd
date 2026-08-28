@@ -272,7 +272,7 @@ In the coefficient plot for the baseline model (Figure 2, top panel), LTPD and I
 #| fig-height: 10
 #| fig-cap: 'Spatial distribution of model residuals plotted for English local authorities. The 5 largest positive and 5 largest negative residuals are labelled.' 
 # Load English lower tier local authorities (ltla) polygon layer  
-ltla <- st_read("LAD_DEC_2021_GB_BFC.shp", quiet=TRUE)
+ltla <- st_read("data/boundaries/LAD_DEC_2021_GB_BFC.shp", quiet=TRUE)
 
 # Extract model residuals 
 model_data<-model_data|>
