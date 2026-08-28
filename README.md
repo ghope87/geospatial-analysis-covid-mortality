@@ -12,12 +12,14 @@ Data from multiple public sources were prepared and combined using local authori
 
 The analysis uses publicly available data from:
 
-- Office for National Statistics (ONS) — COVID-19 mortality
+- Office for National Statistics (ONS) — COVID-19 mortality, Local Authority District December 2021 data
 - NHS England — COVID-19 vaccination uptake
 - UK Government — Index of Multiple Deprivation (IMD) 2019
 - NOMIS / ONS — population and population density
 
 Vaccination uptake was age-standardized after aggregating population and vaccination data into broad age groups.
+
+(Note: ONS LAD boundaries December 2021 dataset is not stored in this repository because of its file size. Download the boundary dataset from the ONS/Open Geography portal and place it in data/boundaries before running the analysis.)
 
 ## Analytical Workflow
 
